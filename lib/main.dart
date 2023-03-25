@@ -1,18 +1,38 @@
 // ignore_for_file: duplicate_import
 
 
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tokoto/home.dart';
+import 'package:tokoto/screens/splash_screen.dart';
 
 
-void main() async{
+
+Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(
-    Home(),
+   const MyApp()
+
   );
 }
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home:SplashScreen(),
+    );
+  }
+}
+
 
 
 
